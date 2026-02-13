@@ -1,0 +1,41 @@
+const express = require("express");
+const cors = require("cors");
+const axios = require("axios");
+require("dotenv").config();
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.post("/ask", async (req, res) => {
+  try {
+    const { question } = req.body;
+
+   const response = await axios.post(
+  "https://api.groq.com/openai/v1/chat/completions",
+  {
+    model: "llama-3.1-8b-instant",
+    messages: [
+      { role: "user", content: question }
+    ]
+  },
+  {
+    headers: {
+      Authorization: `Bearer ${process.env.API_KEY}`,
+      "Content-Type": "application/json"
+    }
+  }
+);
+    res.json({
+      success:true,reply: response.data.choices[0].message.content
+    });
+
+  } catch (error) {
+    console.log(error.response?.data || error.message);
+    res.status(500).json({ error: "Failed" });
+  }
+});
+
+app.listen(8000, () => {
+  console.log("Server running on port 8000");
+});
