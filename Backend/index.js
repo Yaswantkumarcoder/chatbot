@@ -6,10 +6,9 @@ require("dotenv").config();
 const app = express();
 
 // ✅ Only allow your frontend
-app.use(cors({
-  origin: "https://chatbot-blush-phi.vercel.app", // no trailing slash
-}));
-
+app.options("*", (req, res) => {
+  res.sendStatus(200);
+});
 app.use(express.json());
 
 app.post("/ask", async (req, res) => {
