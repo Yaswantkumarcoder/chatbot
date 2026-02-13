@@ -12,7 +12,7 @@ app.options("/ask", cors(corsOptions));
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+pp.options("/ask", cors(corsOptions));
 app.post("/ask", async (req, res) => {
   try {
     const { question } = req.body;
