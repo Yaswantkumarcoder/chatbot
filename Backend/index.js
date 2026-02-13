@@ -2,17 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
-const corsOptions = {
-  origin: "https://chatbot-blush-phi.vercel.app/", // <-- frontend URL
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-};
-app.use(cors(corsOptions));
-app.options("/ask", cors(corsOptions));
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({
+  origin: "https://chatbot-blush-phi.vercel.app/"
+}));
 app.post("/ask", async (req, res) => {
   try {
     const { question } = req.body;
