@@ -24,7 +24,7 @@ function App() {
       <h1 className='text-center font-bold text-4xl mb-4'>chatbot</h1>
       <div className='max-w-[1320px] border-1 mx-auto grid grid-cols-[30%_auto] gap-5 p-5'>
       <form  onSubmit={handleSubmit} action=""className='p-4 shadow-lg'>
-        <textarea value={question} onChange={(e)=>setQuestion(()=>setQuestion(e.target.value))} name=""id=""className='p-3 w-[100%] h-[200px] border-1'></textarea>
+        <textarea value={question} onChange={(e)=>setQuestion(()=>setQuestion(e.target.value))} name="name"id="name"className='p-3 w-[100%] h-[200px] border-1'></textarea>
       <button className='bg-[#111115] text-white w-[100%] py-2 '>Enter to send</button>
       </form>
       <div className='border-l-1 border-[#ccc]'>
