@@ -13,7 +13,7 @@ function App() {
     const handleSubmit=async(e)=>{
       e.preventDefault();
         setLoadingstatus(true);
-       const response= await axios.post("http://localhost:9000/ask",{question});
+       const response= await axios.post("https://chatbot-backend-rose-eight.vercel.app/ask",{question});
        if(response.data.success){
            setData(response.data.reply);
            setLoadingstatus(false);
