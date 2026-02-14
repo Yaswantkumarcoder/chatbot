@@ -42,9 +42,10 @@ app.post("/ask", async (req, res) => {
       }
     );
 
-    // ✅ Send clean response
-    res.json({
+    
+    res.status(200).json({
       success: true,
+      
       reply: response.data.choices[0]?.message?.content || "No reply from API"
     });
 
