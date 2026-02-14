@@ -6,9 +6,10 @@ require("dotenv").config();
 const app = express();
 
 // ✅ Only allow your frontend
-app.options("*", (req, res) => {
-  res.sendStatus(200);
-});
+app.use(cors({
+  origin:"http://localhost:5173",
+  
+}))
 app.use(express.json());
 
 app.post("/ask", async (req, res) => {
