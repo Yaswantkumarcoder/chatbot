@@ -31,7 +31,7 @@ app.post("/ask", async (req, res) => {
           Authorization: `Bearer ${process.env.API_KEY}`,
           "Content-Type": "application/json"
         },
-        timeout: 15000 // optional: 15 seconds timeout
+        timeout: 9000 // optional: 15 seconds timeout
       }
     );
 
@@ -47,4 +47,4 @@ app.post("/ask", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch response from API" });
   }
 });
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports=app;
