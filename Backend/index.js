@@ -5,11 +5,16 @@ require("dotenv").config();
 
 const app = express();
 
-// ✅ Only allow your frontend
+
 app.use(cors({
-  origin:process.env.FRONTEND_URL,
-  
-}))
+  origin: process.env.FRONTEND_URL, 
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+
+app.options("*", cors());
+
 app.use(express.json());
 
 app.post("/ask", async (req, res) => {
