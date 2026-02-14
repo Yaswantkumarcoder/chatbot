@@ -13,7 +13,7 @@ function App() {
     const handleSubmit=async(e)=>{
       e.preventDefault();
         setLoadingstatus(true);
-       const response= await axios.post("https://chatbot-backend-37p8.onrender.com//ask",{question});
+       const response= await axios.post("https://chatbot-backend-37p8.onrender.com/ask",{question});
        if(response.data.success){
            setData(response.data.reply);
            setLoadingstatus(false);
